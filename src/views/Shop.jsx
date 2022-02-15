@@ -1,4 +1,5 @@
-import react, { useReducer } from 'react';
+import { useReducer } from 'react';
+import Item from '../components/Item';
 
 const initialItems = [
   { id: 0, text: 'beef 🐄', done: false },
@@ -42,4 +43,17 @@ export default function Shop() {
   const handleDelete = (entryId) => {
     dispatch({ type: 'delete', entryId });
   };
+
+  return (
+    <div>
+      <form>
+        <input />
+      </form>
+      {items.map((item) => (
+        <div key={item.id}>
+          <Item item={item} />
+        </div>
+      ))}
+    </div>
+  );
 }
