@@ -31,6 +31,9 @@ export default function Item({ item, onEdit, onDelete }) {
     <div>
       <span>{item.text}</span>
       {content}
+      <button type="button" onClick={() => onDelete(item.id)}>
+        Delete
+      </button>
     </div>
   );
 }

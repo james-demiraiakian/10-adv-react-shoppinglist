@@ -22,7 +22,7 @@ function itemReducer(items, action) {
       });
     }
     case 'delete':
-      return items.filter((item) => item.id !== action.item);
+      return items.filter((item) => item.id !== action.id);
     default:
       throw new Error(
         'There is an error that is causing the switch to hit the Default Case. Please debug'
@@ -34,7 +34,7 @@ export default function Shop() {
   const [items, dispatch] = useReducer(itemReducer, initialItems);
 
   const handleAdd = (text) => {
-    dispatch({ type: 'add', id: items.length + 1, text });
+    dispatch({ type: 'add', id: items.length, text });
   };
 
   const handleEdit = (entry) => {
@@ -42,7 +42,7 @@ export default function Shop() {
   };
 
   const handleDelete = (entryId) => {
-    dispatch({ type: 'delete', entryId });
+    dispatch({ type: 'delete', id: entryId });
   };
 
   return (
