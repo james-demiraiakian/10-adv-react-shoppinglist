@@ -1,3 +1,7 @@
-export default function Item({ item }) {
-  return <div>{item.text}</div>;
+export default function Item({ item, onEdit, onDelete }) {
+  return (
+    <div>
+      <span>{item.text}</span>
+    </div>
+  );
 }

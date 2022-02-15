@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import AddItem from '../components/AddItem';
 import Item from '../components/Item';
 
 const initialItems = [
@@ -46,12 +47,10 @@ export default function Shop() {
 
   return (
     <div>
-      <form>
-        <input />
-      </form>
+      <AddItem onAdd={handleAdd} />
       {items.map((item) => (
         <div key={item.id}>
-          <Item item={item} />
+          <Item item={item} onEdit={handleEdit} onDelete={handleDelete} />
         </div>
       ))}
     </div>
