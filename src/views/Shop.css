@@ -1,0 +1,11 @@
+.item-scale {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-done {
+  text-decoration: line-through;
+}

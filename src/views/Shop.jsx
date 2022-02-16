@@ -1,6 +1,7 @@
 import { useReducer } from 'react';
 import AddItem from '../components/AddItem';
 import Item from '../components/Item';
+import './Shop.css';
 
 const initialItems = [
   { id: 0, text: 'beef 🐄', done: false },
