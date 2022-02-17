@@ -6,7 +6,7 @@ import './Shop.css';
 const initialItems = [
   { id: 0, text: 'beef 🐄', done: false },
   { id: 1, text: 'apple 🍏', done: false },
-  { id: 2, text: 'lettuce 🍃', done: false },
+  { id: 2, text: 'leaf 🍃', done: false },
 ];
 
 function itemReducer(items, action) {
