@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer } from 'react';
+import React, { createContext, useContext, useEffect, useReducer } from 'react';
 
 function itemReducer(items, action) {
   switch (action.type) {
@@ -25,13 +25,47 @@ function itemReducer(items, action) {
 export const ItemContext = createContext();
 
 const ItemProvider = ({ children }) => {
-  const [items, dispatch] = useReducer(itemReducer, []);
+  const [items, dispatch] = useReducer(itemReducer, [
+    { id: 0, text: 'beef 🐄', done: false },
+    { id: 1, text: 'apple 🍏', done: false },
+    { id: 2, text: 'leaf 🍃', done: false },
+  ]);
 
   useEffect(() => {
-    const initialItems = [
+    const items = [
       { id: 0, text: 'beef 🐄', done: false },
       { id: 1, text: 'apple 🍏', done: false },
       { id: 2, text: 'leaf 🍃', done: false },
     ];
-  });
+    dispatch({ type: 'reset', payload: items });
+  }, []);
+
+  const handleAdd = (text) => {
+    dispatch({ type: 'add', id: items.length, text });
+  };
+
+  const handleEdit = (entry) => {
+    dispatch({ type: 'edit', entry });
+  };
+
+  const handleDelete = (entryId) => {
+    dispatch({ type: 'delete', id: entryId });
+  };
+
+  return (
+    <ItemContext.Provider value={{ items, handleAdd, handleEdit, handleDelete }}>
+      {children}
+    </ItemContext.Provider>
+  );
 };
+
+const useItems = () => {
+  const context = useContext(ItemContext);
+
+  if (context === undefined) {
+    throw new Error('useItems must be used within an ItemProvider component');
+  }
+  return context;
+};
+
+export { ItemProvider, useItems };
