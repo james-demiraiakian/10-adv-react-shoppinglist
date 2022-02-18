@@ -15,6 +15,8 @@ function itemReducer(items, action) {
     }
     case 'delete':
       return items.filter((item) => item.id !== action.id);
+    case 'reset':
+      return action.payload;
     default:
       throw new Error(
         'There is an error that is causing the switch to hit the Default Case. Please debug'

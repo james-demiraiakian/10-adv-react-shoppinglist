@@ -33,9 +33,9 @@ import './Shop.css';
 // }
 
 export default function Shop() {
-  const { itemList } = useItems();
+  // const { itemList } = useItems();
   console.log(useItems());
-  const { items, handleAdd, handleEdit, handleDelete } = itemList;
+  const { items, handleAdd, handleEdit, handleDelete } = useItems();
   // const handleAdd = (text) => {
   //   dispatch({ type: 'add', id: items.length, text });
   // };
