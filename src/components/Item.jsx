@@ -37,7 +37,7 @@ export default function Item({ item, onEdit, onDelete }) {
   }
 
   return (
-    <div className="item-scale">
+    <li className="item-scale">
       <input
         type="checkbox"
         data-testid={`checkbox-${item.id}`}
@@ -54,6 +54,6 @@ export default function Item({ item, onEdit, onDelete }) {
       >
         Delete
       </button>
-    </div>
+    </li>
   );
 }

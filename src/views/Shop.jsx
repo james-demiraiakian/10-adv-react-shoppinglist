@@ -9,11 +9,13 @@ export default function Shop() {
   return (
     <div>
       <AddItem onAdd={handleAdd} />
-      {items.map((item) => (
-        <div key={item.id}>
-          <Item item={item} onEdit={handleEdit} onDelete={handleDelete} />
-        </div>
-      ))}
+      <ul>
+        {items.map((item) => (
+          <div key={item.id}>
+            <Item item={item} onEdit={handleEdit} onDelete={handleDelete} />
+          </div>
+        ))}
+      </ul>
     </div>
   );
 }

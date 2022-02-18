@@ -14,6 +14,9 @@ test('Renders and tests... everything', () => {
   const addButton = screen.getByRole('button', { name: /add item/i });
   expect(addButton).toBeInTheDocument();
 
+  const listItems = screen.getAllByRole('listitem');
+  expect(listItems).toHaveLength(3);
+
   const checkbox = screen.getByTestId('checkbox-0');
   expect(checkbox).toBeInTheDocument();
 
