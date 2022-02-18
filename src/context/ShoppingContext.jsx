@@ -17,6 +17,8 @@ function itemReducer(items, action) {
       return items.filter((item) => item.id !== action.id);
     case 'reset':
       return action.payload;
+    case 'chuckItAll':
+      return (items = []);
     default:
       throw new Error(
         'There is an error that is causing the switch to hit the Default Case. Please debug'
@@ -54,8 +56,13 @@ const ItemProvider = ({ children }) => {
     dispatch({ type: 'delete', id: entryId });
   };
 
+  const handleChuckItAll = () => {
+    const items = [];
+    dispatch({ type: 'chuckItAll' });
+  };
+
   return (
-    <ItemContext.Provider value={{ items, handleAdd, handleEdit, handleDelete }}>
+    <ItemContext.Provider value={{ items, handleAdd, handleEdit, handleDelete, handleChuckItAll }}>
       {children}
     </ItemContext.Provider>
   );
