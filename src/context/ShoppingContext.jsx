@@ -57,7 +57,6 @@ const ItemProvider = ({ children }) => {
   };
 
   const handleChuckItAll = () => {
-    const items = [];
     dispatch({ type: 'chuckItAll' });
   };
 

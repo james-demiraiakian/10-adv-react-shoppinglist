@@ -1,11 +1,9 @@
-import { useReducer } from 'react';
 import AddItem from '../components/AddItem';
 import Item from '../components/Item';
 import { useItems } from '../context/ShoppingContext';
 import './Shop.css';
 
 export default function Shop() {
-  console.log(useItems());
   const { items, handleAdd, handleEdit, handleDelete } = useItems();
 
   return (
